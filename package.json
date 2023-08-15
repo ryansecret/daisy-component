@@ -1,6 +1,6 @@
 {
   "name": "daisyComponent",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Based on the docs to provide code prompt files for vue component library",
   "main": "lib/index.js",
   "module": "lib/index.es.js",
@@ -39,7 +39,6 @@
   ],
   "author": "ryanchen <shaolinshi111@163.com>",
   "license": "MIT",
-  
   "homepage": "https://github.com/ryansecret/daisy-component.git#readme",
   "engines": {
     "node": ">15.0.0"
