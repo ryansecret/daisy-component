@@ -136,7 +136,7 @@ export function getDocUrl(
   path?: string,
 ): string | undefined {
   const { reDocUrl } = options
-  return isFunction(reDocUrl) ? reDocUrl(fileName, header, path) : undefined
+  return isFunction(reDocUrl) ? reDocUrl(fileName, header, path) : '404.html'
 }
 
 export function getVeturDescription(

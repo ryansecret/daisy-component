@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const helper = require('../lib/index').default
+const helper = require('../src/index.ts').default
 
-helper({
+const params = {
   name: 'test',
   version: '1.0.0',
   docStartText: 'Attributes',
@@ -12,9 +12,19 @@ helper({
   reAttribute,
   reWebTypesSource,
   space: 2,
-})
+  props: 'Attributes',
+  propsName: 'Attribute',
+  propsOptions: 'Accepted Values',
+  eventsName: 'Event Name',
+  tableRegExp:
+    /#+\s+(.*\s*Attributes|.*\s*Events|.*\s*Slots|.*\s*Directives)\s*\n+(\|?.+\|.+)\n\|?\s*:?-+:?\s*\|.+((\n\|?.+\|.+)+)/g,
+}
 
-function reComponentName(title, fileName) {
+//helper(params)
+
+helper({ ...params, onlyDoc: true })
+
+function reComponentName(fileName: string) {
   return (
     'el-' +
     fileName
@@ -24,23 +34,23 @@ function reComponentName(title, fileName) {
   )
 }
 
-function reWebTypesSource(title) {
+function reWebTypesSource(title: string) {
   const symbol =
     'App' +
     title
       .replace(/-/, ' ')
-      .replace(/^\w|\s+\w/g, (item) => item.trim().toUpperCase())
+      .replace(/^\w|\s+\w/g, (item: string) => item.trim().toUpperCase())
 
   return { symbol }
 }
 
-function reDocUrl(fileName, header) {
+function reDocUrl(fileName: string, header: string) {
   const docs = 'https://you.components/docs/'
   const _header = header ? header.replace(/[ ]+/g, '-') : undefined
   return docs + fileName + (_header ? '#' + _header : '')
 }
 
-function reAttribute(str, key) {
+function reAttribute(str: string, key: string) {
   switch (str) {
     case '':
     case '-':
@@ -53,7 +63,7 @@ function reAttribute(str, key) {
         return str
           ? str
               .split('/')
-              .map((name) => reComponentName(name.trim()))
+              .map((name: string) => reComponentName(name.trim()))
               .join('/')
           : str
       } else {

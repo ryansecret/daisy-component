@@ -39,6 +39,8 @@ export interface OptionsConfig {
   entry: string | string[]
   fastGlobConfig?: FastGlobConfig
   outDir: string
+  docStartText: string
+  onlyDoc?: boolean
   name: string
   version: string
   space?: string | number
@@ -109,6 +111,7 @@ export interface NormalizeData extends ParseData {
   slots?: ParseTable
   directives?: ParseTable
   children?: NormalizeData[]
+  doc?: string
 }
 
 export interface Tags {

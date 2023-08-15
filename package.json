@@ -1,6 +1,6 @@
 {
-  "name": "components-helper",
-  "version": "2.1.4",
+  "name": "daisyComponent",
+  "version": "1.0.0",
   "description": "Based on the docs to provide code prompt files for vue component library",
   "main": "lib/index.js",
   "module": "lib/index.es.js",
@@ -12,7 +12,7 @@
     }
   },
   "scripts": {
-    "dev": "rollup -c rollup.config.js -w",
+    "dev": "esno test/main.ts",
     "build": "rollup -c rollup.config.js",
     "test": "node test/index.js",
     "lint": "eslint . --fix --ext .ts,.js --ignore-pattern \"/lib/\"",
@@ -24,7 +24,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tolking/components-helper.git"
+    "url": "git+git@github.com:ryansecret/daisy-component.git"
   },
   "keywords": [
     "vue",
@@ -37,12 +37,10 @@
     "attributes",
     "web-types"
   ],
-  "author": "tolking <qw13131wang@gmail.com>",
+  "author": "ryanchen <shaolinshi111@163.com>",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/tolking/components-helper/issues"
-  },
-  "homepage": "https://github.com/tolking/components-helper#readme",
+  
+  "homepage": "https://github.com/ryansecret/daisy-component.git#readme",
   "engines": {
     "node": ">15.0.0"
   },
