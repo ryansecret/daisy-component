@@ -1,4 +1,4 @@
-# components-helper
+# @jdcloud/daisyComponent
 
 > Based on the documents to provide code prompt files for vue component library
 
@@ -9,15 +9,15 @@ Reference documents format reference test files
 ## Installation
 
 ``` sh
-yarn add components-helper -D
+yarn add @jdcloud/daisyComponent -D
 # or
-npm i components-helper --save-dev
+npm i @jdcloud/daisyComponent --save-dev
 ```
 
 ## Usage
 
 ``` js
-const { main } = require('components-helper')
+const { main } = require('@jdcloud/daisyComponent')
 
 main({
   // Options
@@ -46,43 +46,60 @@ then in package.json
 <details>
 <summary>TOC</summary>
 
-- [entry (required)](#entry)
-- [fastGlobConfig](#fastglobconfig)
-- [outDir (required)](#outdir)
-- [name (required)](#name)
-- [version (required)](#version)
-- [space](#space)
-- [separator](#separator)
-- [reComponentName](#recomponentname)
-- [reDocUrl](#redocurl)
-- [reAttribute](#reattribute)
-- [reVeturDescription](#reveturdescription)
-- [reWebTypesSource](#rewebtypessource)
-- [reWebTypesType](#rewebtypestype)
-- [tags](#tags)
-- [attributes](#attributes)
-- [webTypes](#webtypes)
-- [props](#props)
-- [propsName](#propsname)
-- [propsDescription](#propsdescription)
-- [propsType](#propstype)
-- [propsOptions](#propsoptions)
-- [propsDefault](#propsdefault)
-- [events](#events)
-- [eventsName](#eventsname)
-- [eventsDescription](#eventsdescription)
-- [slots](#slots)
-- [slotsName](#slotsname)
-- [slotsDescription](#slotsdescription)
-- [slotsType](#slotsType)
-- [slotsSubtags](#slotssubtags)
-- [directives](#directives)
-- [directivesName](#directivesname)
-- [directivesDescription](#directivesdescription)
-- [directivesType](#directivestype)
-- [titleRegExp](#titleregexp)
-- [tableRegExp](#tableregexp)
-- [fileNameRegExp](#filenameregexp)
+- [@jdcloud/daisyComponent](#jdclouddaisycomponent)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Options](#options)
+    - [entry](#entry)
+    - [fastGlobConfig](#fastglobconfig)
+    - [outDir](#outdir)
+    - [name](#name)
+    - [version](#version)
+    - [space](#space)
+    - [separator](#separator)
+    - [reComponentName](#recomponentname)
+    - [reDocUrl](#redocurl)
+    - [reAttribute](#reattribute)
+        - [arg](#arg)
+    - [reVeturDescription](#reveturdescription)
+    - [reWebTypesSource](#rewebtypessource)
+    - [reWebTypesType](#rewebtypestype)
+    - [tags](#tags)
+    - [attributes](#attributes)
+    - [webTypes](#webtypes)
+    - [props](#props)
+    - [propsName](#propsname)
+    - [propsDescription](#propsdescription)
+    - [propsType](#propstype)
+    - [propsOptions](#propsoptions)
+    - [propsDefault](#propsdefault)
+    - [events](#events)
+    - [eventsName](#eventsname)
+    - [eventsDescription](#eventsdescription)
+    - [slots](#slots)
+    - [slotsName](#slotsname)
+    - [slotsDescription](#slotsdescription)
+    - [slotsType](#slotstype)
+    - [slotsSubtags](#slotssubtags)
+    - [directives](#directives)
+    - [directivesName](#directivesname)
+    - [directivesDescription](#directivesdescription)
+    - [directivesType](#directivestype)
+    - [titleRegExp](#titleregexp)
+    - [tableRegExp](#tableregexp)
+    - [fileNameRegExp](#filenameregexp)
+  - [Advancement](#advancement)
+    - [about titleRegExp](#about-titleregexp)
+- [title](#title)
+  - [title](#title-1)
+- [title](#title-2)
+    - [about tableRegExp](#about-tableregexp)
+    - [title](#title-3)
+    - [sub-component title](#sub-component-title)
+    - [Props / Events / Slots / Directives](#props--events--slots--directives)
+    - [sub-component Props](#sub-component-props)
+    - [other](#other)
+  - [License](#license)
 
 </details>
 
