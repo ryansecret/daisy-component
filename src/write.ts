@@ -26,7 +26,14 @@ export function writeDoc(options: Options, data: NormalizeData[]) {
   const path = resolve(options.outDir, 'doc.ts')
   const docMap: any = {}
   for (const item of data) {
-    const helpUrl = getDocUrl(options, item.fileName)
+    const helpUrl = getDocUrl(
+      options,
+      item.parentFileName
+        ? `${item.parentFileName}#${item.title
+            ?.replace(/[ ]+/g, '-')
+            .toLowerCase()}`
+        : item.fileName,
+    )
     const text = `[jelement-next:${helpUrl}](${helpUrl}) 
      ${item.doc}`
 

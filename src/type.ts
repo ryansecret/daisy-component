@@ -106,6 +106,7 @@ export interface ParseData {
 export interface NormalizeData extends ParseData {
   path: string
   fileName: string
+  parentFileName?: string
   props?: ParseTable
   events?: ParseTable
   slots?: ParseTable

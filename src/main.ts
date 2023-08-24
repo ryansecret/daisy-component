@@ -7,7 +7,6 @@ import { vetur } from './vetur'
 import { webTypes } from './webTypes'
 import { write, writeDoc } from './write'
 import type { InstallOptions, Options } from './type'
-import { start } from 'repl'
 
 export function main(options = {} as InstallOptions) {
   if (!options.entry)
@@ -19,19 +18,37 @@ export function main(options = {} as InstallOptions) {
   const _options: Options = Object.assign(config, options)
   const files: string[] = fg.sync(_options.entry, _options.fastGlobConfig)
   const docs = []
-  const data = files.map((path) => {
-    const fileContent = read(path)
-    const parseContent = parse(_options, fileContent)
-    const content = normalize(_options, parseContent, path)
-    if (options.onlyDoc === true) {
-      const docIndex = fileContent.indexOf(options.docStartText)
-      content.doc = fileContent.substring(
-        docIndex + options.docStartText.length,
-      )
-    }
+  const data = files
+    .map((path) => {
+      const fileContent = read(path)
+      const parseContent = parse(_options, fileContent)
+      const content = normalize(_options, parseContent, path)
+      if (options.onlyDoc === true) {
+        const subItem = content.table?.find((d) =>
+          d.title.toLowerCase().includes('item'),
+        )
 
-    return content
-  })
+        const contents = [content]
+        if (subItem) {
+          const subIndex = fileContent.indexOf(subItem.title)
+          contents.push({
+            ...content,
+            parentFileName: content.fileName,
+            title: subItem.title,
+            fileName: subItem.title.toLowerCase().replaceAll('attributes', ''),
+            doc: fileContent.substring(subIndex + subItem.title.length),
+          })
+        }
+        const docIndex = fileContent.indexOf(options.docStartText)
+        content.doc = fileContent.substring(
+          docIndex + options.docStartText.length,
+        )
+        return contents
+      }
+
+      return content
+    })
+    .flat()
   const { tags, attributes } = vetur(_options, data)
   const webTypesData = webTypes(_options, data)
   if (options.onlyDoc !== true) {
