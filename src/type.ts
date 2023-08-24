@@ -50,6 +50,7 @@ export interface OptionsConfig {
   reVeturDescription?: ReVeturDescription
   reWebTypesSource?: ReWebTypesSource
   reWebTypesType?: ReWebTypesType
+  subItems?: Array<string>
 }
 
 export interface Config {

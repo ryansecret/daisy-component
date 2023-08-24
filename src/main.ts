@@ -24,10 +24,10 @@ export function main(options = {} as InstallOptions) {
       const parseContent = parse(_options, fileContent)
       const content = normalize(_options, parseContent, path)
       if (options.onlyDoc === true) {
-        const subItem = content.table?.find((d) =>
-          d.title.toLowerCase().includes('item'),
-        )
-
+        const subItem = content.table?.find((item) => {
+          const subItems = _options.subItems || ['column', 'item']
+          return subItems.some((d) => item.title.toLowerCase().includes(d))
+        })
         const contents = [content]
         if (subItem) {
           const subIndex = fileContent.indexOf(subItem.title)
